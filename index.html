@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style/all.css">
+  <script src="https://kit.fontawesome.com/8cb04e95ad.js" crossorigin="anonymous"></script>
+  <title>Travel Planning</title>
+</head>
+
+<body>
+  <div class="container light">
+    <!-- <div class="switch-mode">
+      <i class="fa-solid fa-sun"></i>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <i class="fa-solid fa-moon"></i>
+    </div> -->
+    <div class="date-picker">
+      <h1>Choose Date</h1>
+      <h1></h1>
+      <div id="litepicker"><span class="start-date"></span> - <span class="end-date"></span></div>
+    </div>
+    <section class="card-section">
+      <!-- example -->
+      <div class="card" id="card${i + 1}">
+        <div class="card-header">
+          <span>2022-4-30</span>
+          <h3 class="card-title"><strong>Day 0</strong></h3>
+          <button class="toggleButton" type="button"><i class="fa-solid fa-plus"></i></button>
+        </div>
+        <div class="card-body">
+          <li class="card-item" draggable="true">
+            <div class="category">景</div>
+            <div class="detail">
+              <span class="destination">高雄</span>
+              <span class="budget">$100</span>
+            </div>
+            <button class="delete" type="button"><i class="fa-solid fa-xmark"></i></button>
+          </li>
+          <li class="card-item" draggable="true">
+            <div class="category">食</div>
+            <div class="detail">
+              <span class="destination">壽司郎</span>
+              <span class="budget">$300</span>
+            </div>
+            <button class="delete" type="button"><i class="fa-solid fa-xmark"></i></button>
+          </li>
+        </div>
+      </div>
+    </section>
+    <div id="modalOverlay" class="modal-hide"></div>
+    <div id="modal" class="modal-hide">
+      <div><span>日期：</span><span class="date"></span></div>
+      <div>
+        <label for="destination">景點：</label>
+        <input type="text" name="destination" id="destination">
+      </div>
+      <div>
+        <label for="category">類別：</label>
+        <select id="category">
+          <option value="\f2e7">飲食</option>
+          <option value="\e52f">景點</option>
+          <option value="\f236">住宿</option>
+          <option value="\f238">交通</option>
+        </select>
+      </div>
+      <div>
+        <label for="budget">預算：</label>
+        <input type="text" name="budget" id="budget">
+      </div>
+      <div>
+        <button class="toggleButton">Add</button>
+        <button class="toggleButton" id="closeBtn">Close</button>
+      </div>
+    </div>
+    <!-- <div>
+      <label for="toggleControl" class="toggleButton"><i class="fa-solid fa-plus"></i></label>
+      <input type="checkbox" id="toggleControl">
+      <label for="toggleControl" class="toggleOverlay"></label>
+      <div id="toggleMe">
+        <div>
+          <label for="destination">景點</label>
+          <input type="text" name="destination" id="destination">
+        </div>
+        <div>
+          <label for="category">類別</label>
+          <select id="category">
+            <option value="飲食">飲食</option>
+            <option value="景點">景點</option>
+            <option value="住宿">住宿</option>
+            <option value="交通">交通</option>
+          </select>
+        </div>
+        <div>
+          <label for="budget">預算</label>
+          <input type="text" name="budget" id="budget">
+        </div>
+        <div>
+          <button class="toggleButton">Add</button>
+          <label for="toggleControl" class="toggleButton">Close</label>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- lite picker -->
+    <script src=" https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
