@@ -60,6 +60,10 @@ button {
   background: #eff9ff;
 }
 
+.step {
+  text-align: center;
+}
+
 .switch-mode {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -220,13 +224,25 @@ input:checked + .slider:before {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 0.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-item > .detail input {
+  height: 100%;
+  padding: 0.5rem;
+  background: inherit;
+  border: none;
+  outline: none;
+  color: #fefefe;
+  font-size: inherit;
 }
 
 .card-item > .deleteBtn {

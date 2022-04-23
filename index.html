@@ -28,13 +28,13 @@
       <i class="fa-solid fa-moon"></i>
     </div> -->
     <div class="date-picker">
-      <h1>Choose Date</h1>
-      <h1></h1>
+      <h1 class="step">Step 1 : Choose Date</h1>
       <div id="litepicker"><span class="start-date"></span> - <span class="end-date"></span></div>
     </div>
+    <h1 class="step">Step 2 : Add Item to any card</h1>
     <section class="card-section">
       <!-- example -->
-      <div class="card" id="card${i + 1}">
+      <!-- <div class="card" id="card${i + 1}">
         <div class="card-header">
           <span>2022-4-30</span>
           <h3 class="card-title"><strong>Day 0</strong></h3>
@@ -44,8 +44,8 @@
           <li class="card-item" draggable="true">
             <div class="category">景</div>
             <div class="detail">
-              <span class="destination">高雄</span>
-              <span class="budget">$100</span>
+              <input class="destination" value="高雄">
+              <input class="budget" value="$100">
             </div>
             <button class="delete" type="button"><i class="fa-solid fa-xmark"></i></button>
           </li>
@@ -58,11 +58,13 @@
             <button class="delete" type="button"><i class="fa-solid fa-xmark"></i></button>
           </li>
         </div>
-      </div>
+      </div> -->
     </section>
+
+    <!-- modal -->
     <div id="modalOverlay" class="modal-hide"></div>
     <div id="modal" class="modal-hide">
-      <div><span>日期：</span><span class="date"></span></div>
+      <div>新增項目</div>
       <div>
         <label for="destination">景點：</label>
         <input type="text" name="destination" id="destination">
@@ -70,10 +72,10 @@
       <div>
         <label for="category">類別：</label>
         <select id="category">
-          <option value="\f2e7">飲食</option>
-          <option value="\e52f">景點</option>
-          <option value="\f236">住宿</option>
-          <option value="\f238">交通</option>
+          <option value="fa-utensils">飲食</option>
+          <option value="fa-mountain-sun">景點</option>
+          <option value="fa-bed">住宿</option>
+          <option value="fa-train">交通</option>
         </select>
       </div>
       <div>
@@ -81,38 +83,10 @@
         <input type="text" name="budget" id="budget">
       </div>
       <div>
-        <button class="toggleButton">Add</button>
-        <button class="toggleButton" id="closeBtn">Close</button>
+        <button id="addBtn">Add</button>
+        <button id="closeBtn">Close</button>
       </div>
     </div>
-    <!-- <div>
-      <label for="toggleControl" class="toggleButton"><i class="fa-solid fa-plus"></i></label>
-      <input type="checkbox" id="toggleControl">
-      <label for="toggleControl" class="toggleOverlay"></label>
-      <div id="toggleMe">
-        <div>
-          <label for="destination">景點</label>
-          <input type="text" name="destination" id="destination">
-        </div>
-        <div>
-          <label for="category">類別</label>
-          <select id="category">
-            <option value="飲食">飲食</option>
-            <option value="景點">景點</option>
-            <option value="住宿">住宿</option>
-            <option value="交通">交通</option>
-          </select>
-        </div>
-        <div>
-          <label for="budget">預算</label>
-          <input type="text" name="budget" id="budget">
-        </div>
-        <div>
-          <button class="toggleButton">Add</button>
-          <label for="toggleControl" class="toggleButton">Close</label>
-        </div>
-      </div>
-    </div> -->
 
     <!-- lite picker -->
     <script src=" https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>

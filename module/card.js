@@ -1,6 +1,9 @@
 const cardSection = document.querySelector('.card-section')
 let dragEl = null
 const data = []
+const modal = document.querySelector('#modal')
+const overlay = document.querySelector('#modalOverlay')
+let targetCard = ''
 
 export const handleListener = () => {
   cardSection.addEventListener('DOMSubtreeModified', cardListener)
@@ -30,22 +33,6 @@ function renderInitCard(startDate, days) {
           <button class="toggleButton" type="button"><i class="fa-solid fa-plus"></i></button>
         </div>
         <div class="card-body">
-          <li class="card-item" draggable="true">
-            <div class="category">景</div>
-            <div class="detail">
-              <span class="destination">高雄</span>
-              <span class="budget">$100</span>
-            </div>
-            <button class="deleteBtn" type="button"><i class="fa-solid fa-xmark"></i></button>
-          </li>
-          <li class="card-item" draggable="true">
-            <div class="category">食</div>
-            <div class="detail">
-              <span class="destination">壽司郎</span>
-              <span class="budget">$300</span>
-            </div>
-            <button class="deleteBtn" type="button"><i class="fa-solid fa-xmark"></i></button>
-          </li>
         </div>
       </div>`
     createData(date)
@@ -66,6 +53,7 @@ function cardListener() {
     const deleteBtn = item.querySelector('.deleteBtn')
     item.addEventListener('dragstart', handleDragStart, false)
     item.addEventListener('dragend', handleDragEnd, false)
+    item.addEventListener('dblclick', openModal, false)
     deleteBtn.addEventListener('click', removeItem)
   })
 }
@@ -109,7 +97,6 @@ function handleDropped(e) {
     children.forEach((child) => {
       if (dragPosition > this.getBoundingClientRect(child).y) {
         this.appendChild(dragEl)
-        console.log(dragPosition)
       } else {
         this.insertBefore(dragEl, child)
       }
@@ -119,15 +106,17 @@ function handleDropped(e) {
 }
 
 function openModal(e) {
-  const modal = document.querySelector('#modal')
-  const overlay = document.querySelector('#modalOverlay')
-  modal.classList.remove('modal-hide')
-  overlay.classList.remove('modal-hide')
+  if (e.target.parentElement.classList.contains('toggleButton')) {
+    const currentBtn = e.target.parentElement
+    targetCard = currentBtn.parentElement.nextElementSibling
+    const addBtn = modal.querySelector('#addBtn')
+    modal.classList.remove('modal-hide')
+    overlay.classList.remove('modal-hide')
+    addBtn.addEventListener('click', addItem)
+  }
 }
 
 function closeModal() {
-  const modal = document.querySelector('#modal')
-  const overlay = document.querySelector('#modalOverlay')
   modal.classList.add('modal-hide')
   overlay.classList.add('modal-hide')
 }
@@ -138,6 +127,43 @@ function removeItem(e) {
     const cardbody = item.parentElement
     cardbody.removeChild(item)
   }
+}
+
+function addItem() {
+  let destination = modal.querySelector('#destination').value
+  let category = modal.querySelector('#category').value
+  let budget = modal.querySelector('#budget').value
+  if (isInteger(budget)) {
+    let temp = `<div class="category"><i class="fa-solid ${category}"></i></div>
+            <div class="detail">
+              <input class="destination" value="${destination}">
+              <span class="budge">$${budget}</span>
+            </div>
+            <button class="deleteBtn" type="button"><i class="fa-solid fa-xmark"></i></button>`
+    let item = document.createElement('li')
+    item.classList.add('card-item')
+    item.setAttribute('draggable', 'true')
+    item.innerHTML = temp
+    targetCard.appendChild(item)
+    closeModal()
+    targetCard = ''
+    destination = ''
+    budget = ''
+  }
+}
+
+function isInteger(num) {
+  if (typeof num !== 'number' && num % 1 !== 0) {
+    alert('請輸入整數')
+    return false
+  } else {
+    return true
+  }
+}
+
+// TODO
+function editItem(item) {
+  console.log('dblclick', item)
 }
 
 /* data */
