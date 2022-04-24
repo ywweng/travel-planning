@@ -8,67 +8,55 @@
 .card {
   border-radius: 1rem;
   background-color: $input-primary;
-  transition: 0.3s;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  border-radius: 1rem 1rem 0 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.card-body {
-  padding: 2rem 1rem;
-}
-
-.card-item {
-  margin-bottom: 1rem;
-  display: flex;
-  border-radius: 10px;
-  background: #52c3ff;
-  color: #fefefe;
-  cursor: move;
-  width: 100%;
-  > .category {
-    padding: 0.5rem;
-    text-align: center;
-    color: #232425;
-    width: 3rem;
-    background-color: #eff9ff;
-  }
-  > .detail {
-    flex: 1;
+  .card-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    input {
-      height: 100%;
+    padding: 1rem;
+    border-radius: 1rem 1rem 0 0;
+    border-bottom: 1px solid #ccc;
+  }
+  .card-body {
+    padding: 2rem 1rem;
+  }
+  .card-item {
+    margin-bottom: 1rem;
+    display: flex;
+    border-radius: 10px;
+    background: $background-item;
+    color: $item-font-color;
+    cursor: move;
+    width: 100%;
+    [draggable='true'] {
+      user-select: none;
+    }
+    > .arrival-time {
       padding: 0.5rem;
-      background: inherit;
-      border: none;
-      outline: none;
-      color: #fefefe;
-      font-size: inherit;
+    }
+    > .category {
+      padding: 0.5rem;
+      text-align: center;
+      color: #232425;
+      width: 3rem;
+      background-color: $background-primary;
+    }
+    > .detail {
+      padding: 0.5rem;
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    > .deleteBtn {
+      width: 2rem;
+      &:hover {
+        opacity: 0.5;
+      }
     }
   }
-  > .deleteBtn {
-    width: 2rem;
-    &:hover {
-      opacity: 0.5;
-    }
-  }
-}
-
-[draggable='true'] {
-  user-select: none;
 }
 
 .dragging {
-  // height: 100%;
   border: 2px dashed #c4cad3;
-  // box-shadow: $box-shadow-primary;
 }
 
 .hide {
@@ -104,7 +92,7 @@
   display: none;
 }
 
-.toggleButton {
+.modal-button {
   padding: 3px 6px;
   border: 1px solid #232425;
   border-radius: 5px;

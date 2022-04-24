@@ -18,23 +18,16 @@
 </head>
 
 <body>
-  <div class="container light">
-    <!-- <div class="switch-mode">
-      <i class="fa-solid fa-sun"></i>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
-      <i class="fa-solid fa-moon"></i>
-    </div> -->
+  <div class="container">
+    <h1 class="project-title">Traveling Todo</h1>
     <div class="date-picker">
-      <h1 class="step">Step 1 : Choose Date</h1>
+      <h2 class="step">Choose Date to add card</h2>
       <div id="litepicker"><span class="start-date"></span> - <span class="end-date"></span></div>
     </div>
-    <h1 class="step">Step 2 : Add Item to any card</h1>
+    <h2 class="step">Add Item to any card then you can drag or edit them</h2>
     <section class="card-section">
       <!-- example -->
-      <!-- <div class="card" id="card${i + 1}">
+      <div class="card" id="card${i + 1}">
         <div class="card-header">
           <span>2022-4-30</span>
           <h3 class="card-title"><strong>Day 0</strong></h3>
@@ -42,31 +35,36 @@
         </div>
         <div class="card-body">
           <li class="card-item" draggable="true">
-            <div class="category">景</div>
+            <div class="arrival-time">${123123}</div>
+            <div class="category"><i class="fa-solid ${category}"></i></div>
             <div class="detail">
-              <input class="destination" value="高雄">
-              <input class="budget" value="$100">
+              <span class="destination">${destination}</span>
+              <span class="budge">$${budget}</span>
             </div>
-            <button class="delete" type="button"><i class="fa-solid fa-xmark"></i></button>
+            <button class="deleteBtn" type="button"><i class="fa-solid fa-xmark"></i></button>
           </li>
           <li class="card-item" draggable="true">
-            <div class="category">食</div>
+            <div class="category"><i class="fa-solid ${category}"></i></div>
             <div class="detail">
-              <span class="destination">壽司郎</span>
-              <span class="budget">$300</span>
+              <span class="destination">${destination}</span>
+              <span class="budge">$${budget}</span>
             </div>
-            <button class="delete" type="button"><i class="fa-solid fa-xmark"></i></button>
+            <button class="deleteBtn" type="button"><i class="fa-solid fa-xmark"></i></button>
           </li>
         </div>
-      </div> -->
+      </div>
     </section>
 
     <!-- modal -->
     <div id="modalOverlay" class="modal-hide"></div>
     <div id="modal" class="modal-hide">
-      <div>新增項目</div>
+      <div class="modal-title">新增項目</div>
+      <div><span>抵達時間：</span><select name="arrival-hour" id="arrival-hour">
+        </select>:<select name="arrival-minute" id="arrival-minute">
+          </option>
+        </select></div>
       <div>
-        <label for="destination">景點：</label>
+        <label for="destination">地點：</label>
         <input type="text" name="destination" id="destination">
       </div>
       <div>

@@ -16,13 +16,13 @@
   border-radius: 10px;
   background-color: $input-primary;
   box-shadow: 1px 5px 5px rgba(0, 0, 0, 0.1);
+  &::after {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    content: '\f073';
+    position: absolute;
+    right: 20px;
+    top: 10px;
+  }
 }
 
-#litepicker::after {
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  content: '\f073';
-  position: absolute;
-  right: 20px;
-  top: 10px;
-}
